@@ -1,0 +1,374 @@
+{% from 'video.html' import video  %}
+{% from 'button.html' import button %}
+{% from 'modal.html' import modal %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<div class="c-hero">
+  {{ video({
+      instance_id: 1,
+      id: '1',
+      platform: 'native',
+      title: 'Dept agency Introduction',
+      description: 'Introduction Video',
+      thumbnail: 'https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-1280x720-c.jpg',
+      controls: 0,
+      playsinline: 1,
+      autoplay: 1,
+      loop: 1,
+      muted: 1,
+      image: {
+          preload: 'https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-480x250-c.jpg',
+          image: 'https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-1280x720-c.jpg',
+          srcset: 'https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-320x250-c.jpg 320w,https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-480x250-c.jpg 480w,https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-730x410-c.jpg 1024w,https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-1024x576-c.jpg 1024w,https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-1280x720-c.jpg 1280w,https://www.deptagency.com/wp-content/uploads/fly-images/114213/Dept_Berlin_Office-19-1440x810-c.jpg 1440w'
+      },
+      sources: [
+          {
+              size : 1920,
+              source: [
+                  {
+                      url: 'https://player.vimeo.com/external/344108443.hd.mp4?s=c1730857e5c3097471ce4d0e05b3bfd287ab561f&profile_id=175',
+                      type: 'video/mp4'
+                  }
+              ]
+          },
+          {
+              size : 1280,
+              source: [
+                  {
+                      url: 'https://player.vimeo.com/external/344108443.hd.mp4?s=c1730857e5c3097471ce4d0e05b3bfd287ab561f&profile_id=175',
+                      type: 'video/mp4'
+                  }
+              ]
+          },
+          {
+              size : 1024,
+              source: [
+                  {
+                      url: 'https://player.vimeo.com/external/344108443.hd.mp4?s=c1730857e5c3097471ce4d0e05b3bfd287ab561f&profile_id=175',
+                      type: 'video/mp4'
+                  }
+              ]
+          },
+          {
+              size : 960,
+              source: [
+                  {
+                      url: 'https://player.vimeo.com/external/344108443.sd.mp4?s=c1730857e5c3097471ce4d0e05b3bfd287ab561f&profile_id=175',
+                      type: 'video/mp4'
+                  }
+              ]
+          },
+          {
+              size : 640,
+              source: [
+                  {
+                      url: 'https://player.vimeo.com/external/344108443.hd.mp4?s=c1730857e5c3097471ce4d0e05b3bfd287ab561f&profile_id=175',
+                      type: 'video/mp4'
+                  }
+              ]
+          }
+      ]
+  }) }}
+
+  <div class="o-container">
+    <div class="hero__content">
+      <h1 class="hero__title u-margin-bottom--sm">We are going to create: <br/>A modal with a newsletter form!!</h1>
+      <p class="hero__subtitle">Let's get started!</p>
+    </div>
+
+
+<style>
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1111; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    text-align: center;
+    background-color: lightgrey;
+    margin: auto;
+    padding: 5px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 30px 16px;
+  }
+  
+  .modal-body {
+    display: block;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 20px;
+}
+
+h2 {
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 50px;
+}
+
+#myM {
+    display: none;
+}
+
+  input {
+    padding: 8px;
+  }
+
+  #email {
+    width: 34vw;
+  }
+
+  #firstname, #lastname {
+      width: 17vw;
+  }
+
+  .button_back {
+      border: 2px solid black;
+      padding: 7px;
+      padding-left: 15px;
+      padding-right: 15px;
+      color: black;
+      cursor: pointer;
+  }
+
+  .button_submit {
+      background-color: red !important;
+      color: white;
+      padding: 7px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      cursor: pointer;
+  }
+
+.modal-backdrop {
+      z-index: -1;
+}
+
+.invalid {
+    border:1px solid red
+}
+.valid {
+    border:1px solid green
+}
+
+#errorresults {
+    display: none;
+}
+  
+</style>
+
+<button type="button" id="myBtn" class="hero__cta c-button--secondary" data-toggle="modal" data-target="#myModal">Subscribe to newsletter <i class="fa fa-chevron-right"></i></button>
+
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <form role="form" id="newModalForm">
+        <span id="close" class="close" data-dismiss="modal">&times;</span>
+        <h2 class="modal-title">Niks willen missen van onze nieuwtjes en acties?</h2>
+            <div class="form-group">
+        <input onchange="ValidateEmail(this);" class="email" id="email" title="email address" type="text" placeholder="Email address" name="email" required>
+      </div>
+    </div>
+      <div id="myM">
+      <div class="modal-body">
+        <input id="firstname" type="text" placeholder="First Name" name="firstname" required>
+        <input id="lastname" type="text" placeholder="Last Name" name="lastname" required>
+       </div>
+      <div class="modal-footer">
+          <button  type="button" id="btn_b" class="button_back" data-dismiss="modal"><i class="fa fa-chevron-left"></i>  Back</button>
+          <button type="submit" value="Submit" class="button_submit" onclick="formValidation()">Submit <i class="fa fa-chevron-right"></i></button>
+      </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  </div>
+
+
+<!-- API error response -->
+  <div id="errorresults" class="modal" role="dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="padding:100px;">
+        <form role="form" id="newModalForm">
+        <span id="close" class="close" data-dismiss="modal">&times;</span>
+      <div class="modal-body">
+          <div style="padding: 10px;">Oeps r is iets fout gegaan</div>
+        <button  type="button" id="btn_b" class="button_back" data-dismiss="modal"><i class="fa fa-chevron-left"></i>  Back to form</button>
+       </div>
+    </form>
+    </div>
+  </div>
+  </div>
+
+  <!-- API success response -->
+  <div id="showresults" class="modal" role="dialog">
+    <div class="modal-content"  style="width: 20%; padding-top: 20px; padding-bottom: 20px; color: white; background-color: green; font-weight: bold;">
+          <span>Bedankt voor uw aanmelding!</span>
+    </div>
+  </div>
+  </div>
+
+
+
+<script>
+function formValidation() {
+    var uemail = document.getElementById("email");
+    var fname = document.getElementById("firstname");
+    var lname = document.getElementById("lastname");
+    if(ValidateEmail(uemail)){ 
+        if(allLetter(fname)){
+            if(allLetter(lname)){
+            }
+        }
+    }
+    return false;
+}
+// Validate email
+function ValidateEmail(uemail){
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(uemail.value.match(mailformat)){
+document.getElementById("email").className="valid";
+return true;
+}
+else {
+alert("You have entered an invalid email address!");
+uemail.focus();
+document.getElementById("email").className="invalid";
+return false;
+}
+}
+
+
+//Validate first and last name
+function allLetter(fname) { 
+var letters = /^[A-Za-z]+$/;
+if(fname.value.match(letters))
+return true;
+else {
+fname.focus();
+return false;
+}
+}
+
+function allLetter(lname) { 
+var letters = /^[A-Za-z]+$/;
+if(lname.value.match(letters))
+return true;
+else {
+lname.focus();
+return false;
+}
+}
+
+</script>
+
+<script>
+$(document).ready(function() {
+  $(".email").focus(function() { 
+    $('#myM').show('slow');
+    });
+});
+
+$('#myBtn').click(function(){
+  $('video').trigger('pause');
+      });
+
+$("#close").click(function(){
+    $('video').trigger('play');
+});
+
+$("#btn_b").click(function(){
+    $('video').trigger('play');
+});
+
+</script>
+
+<!-- Making API call -->
+<!-- <script type="text/javascript">
+    var frm = $('#newModalForm');
+
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            dataType: "html",
+            url: "https://api.mocki.io/v1/b043df5a",
+            data: frm.serialize(),
+            success: function (data) {
+                var result = $('<div />').append(data).find('#showresults').html();
+                $('#showresults').html(result);
+                console.log('Submission was successful.');
+            },
+            error: function (data) {
+                var result = $('<div />').append(data).find('#errorresults').html();
+                $('#errorresults').html(result);
+                console.log('An error occurred.');
+            },
+        });
+    });
+</script> -->
